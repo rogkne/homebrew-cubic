@@ -1,0 +1,28 @@
+name: Continuous Integration
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  test-install:
+    name: Test Homebrew Installation on macOS
+    runs-on: macos-latest
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+
+      - name: Install Package
+        run: brew install cubic-vm/cubic/cubic
+
+      - name: Verify Installation
+        run: |
+          which cubic
+          cubic --version
+
+      - name: Show Help
+        run: cubic --help
