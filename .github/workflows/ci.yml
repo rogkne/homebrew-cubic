@@ -9,8 +9,26 @@ permissions:
   contents: read
 
 jobs:
-  test-install:
-    name: Test Homebrew Installation on macOS
+  check-linux:
+    name: Check Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+
+      - name: Install Package
+        run: brew install cubic-vm/cubic/cubic
+
+      - name: Verify Installation
+        run: |
+          which cubic
+          cubic --version
+
+      - name: Show Help
+        run: cubic --help
+
+  check-macos:
+    name: Check macOS
     runs-on: macos-latest
     steps:
       - name: Set up Homebrew
