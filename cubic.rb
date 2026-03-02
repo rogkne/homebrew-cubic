@@ -1,13 +1,12 @@
 class Cubic < Formula
   desc "Lightweight command-line manager for virtual machines"
   homepage "https://github.com/cubic-vm/cubic"
-  url "https://github.com/cubic-vm/cubic/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "040327af6e965e27df0db0b4e5974ca01b17b43190e16312dace2d5c4b549873"
+  url "https://github.com/cubic-vm/cubic/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "e17bb740b67e5fa35d1f5fa608957afede709e9e017a5d333e8fdbd99c00f6d1"
   license "MIT OR Apache-2.0"
 
   depends_on "rust" => :build
   depends_on "cdrtools"
-  depends_on "openssh"
   depends_on "qemu"
 
   def install
